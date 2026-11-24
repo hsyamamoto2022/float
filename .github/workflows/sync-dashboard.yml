@@ -1,0 +1,40 @@
+name: Sync public dashboard build
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download published static build
+        run: |
+          set -euo pipefail
+          base="https://organon-fertilidade-visao-estrategica-2027.hiltonsy1978.chatgpt.site"
+          files=(
+            index.html
+            benchmark-v10.js brand-plan-2027.js clarity-v11.js interview-names-v16.js market-panorama-v19.js
+            netnography-audit-directory-v31.js netnography-clarity-v29.js netnography-evidence-data-v33.js
+            netnography-evidence-v33.js netnography-evidence.json netnography-intelligence-v26.js
+            netnography-interactive-profiles-v30.js netnography-live-matrix-v32.js netnography-profile-directory.json
+            netnography-profiles-v27.js netnography-public-v28.js netnography-redesign-v24.js netnography-v21.js
+            planning.js refine-v12.js refine-v3.js refine-v4.js remove-brand-plan.js strategy-v2.js title-v13.js
+          )
+          for file in "${files[@]}"; do
+            curl --fail --location --retry 3 "${base}/${file}" --output "${file}"
+          done
+          touch .nojekyll
+      - name: Commit static dashboard
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html *.js *.json .nojekyll
+          git diff --cached --quiet || git commit -m "chore: sync published Organon dashboard"
+          git push
