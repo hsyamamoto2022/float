@@ -7,7 +7,9 @@
     ['Médica','Viviane Santana','Área Médica'],
     ['Liderança de Vendas','Mario Henrique','Liderança de Vendas / Franquia'],
     ['Comercial','Dernival Cardoso','Comercial Nacional / Distribuição'],
-    ['Acesso','Carlson Andrade','Acesso / Agenda Institucional']
+    ['Acesso','Carlson Andrade','Acesso / Agenda Institucional'],
+    ['Diretoria de Fertilidade','Marcel Zetun','Diretoria de Fertilidade / Saúde Feminina'],
+    ['Área Médica — Clínica','Dra. Altina','Cliente-clínica / Reprodução Assistida']
   ];
   [...chips.children].forEach((chip) => {
     const row = people.find(([area]) => chip.textContent.trim() === area);
@@ -16,11 +18,11 @@
   if (!areas.querySelector('.area-interviewees')) {
     const roster = document.createElement('div');
     roster.className = 'area-interviewees';
-    roster.innerHTML = `<div class="eyebrow">Quem foi entrevistado</div><h3>Visões das áreas</h3><div class="area-roster">${people.map(([area,name,role]) => `<div><span>${area}</span><b>${name}</b><small>${role}</small></div>`).join('')}</div>`;
+    roster.innerHTML = `<div class="eyebrow">Quem foi entrevistado</div><h3>Visões das áreas entrevistadas</h3><div class="area-roster">${people.map(([area,name,role]) => `<div><span>${area}</span><b>${name}</b><small>${role}</small></div>`).join('')}</div>`;
     chips.insertAdjacentElement('beforebegin', roster);
   }
   const style = document.createElement('style');
-  style.textContent = `.area-interviewees{padding:16px;margin:16px 0;border:1px solid #d8e4e2;border-radius:13px;background:#f7fbfa}.area-interviewees h3{margin:4px 0 12px;font-size:19px;color:#062b41}.area-roster{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.area-roster>div{padding:11px;border-radius:9px;background:#fff;border:1px solid #d8e4e2}.area-roster span{display:block;color:#007f79;font-size:10px;text-transform:uppercase;letter-spacing:.07em;font-weight:800}.area-roster b{display:block;color:#062b41;font-size:14px;margin:4px 0 2px}.area-roster small{display:block;color:#5f767c;font-size:10px;line-height:1.25}.chips#areaChips button{display:flex;flex-direction:column;align-items:flex-start;gap:1px}.chips#areaChips button small{font-size:10px;opacity:.78;font-weight:600}@media(max-width:900px){.area-roster{grid-template-columns:repeat(2,1fr)}}@media(max-width:520px){.area-roster{grid-template-columns:1fr}}`;
+  style.textContent = `.area-interviewees{padding:16px;margin:16px 0;border:1px solid #d8e4e2;border-radius:13px;background:#f7fbfa}.area-interviewees h3{margin:4px 0 12px;font-size:19px;color:#062b41}.area-roster{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.area-roster>div{padding:11px;border-radius:9px;background:#fff;border:1px solid #d8e4e2}.area-roster span{display:block;color:#007f79;font-size:10px;text-transform:uppercase;letter-spacing:.07em;font-weight:800}.area-roster b{display:block;color:#062b41;font-size:14px;margin:4px 0 2px}.area-roster small{display:block;color:#5f767c;font-size:10px;line-height:1.25}.chips#areaChips button{display:flex;flex-direction:column;align-items:flex-start;gap:1px}.chips#areaChips button small{font-size:10px;opacity:.78;font-weight:600}@media(max-width:900px){.area-roster{grid-template-columns:repeat(2,1fr)}}@media(max-width:520px){.area-roster{grid-template-columns:1fr}}`;
   document.head.appendChild(style);
 })();
 
@@ -32,12 +34,12 @@
   section.className = 'complementary-interviews';
   section.innerHTML = `
     <div class="complementary-heading">
-      <div><div class="eyebrow">LIDERANÇA E PRÁTICA CLÍNICA</div><h3>Duas perspectivas que completam a leitura das 10 entrevistas.</h3></div>
-      <p>Marcel traz a lente de negócio, priorização e governança. Dra. Altina traz a decisão clínica, a experiência da paciente e a operação de uma clínica de reprodução assistida.</p>
+      <div><div class="eyebrow">ÁREAS ENTREVISTADAS</div><h3>Duas áreas decisivas para a estratégia de fertilidade.</h3></div>
+      <p>Diretoria de Fertilidade define a lente de negócio, priorização e governança. Área Médica — Clínica traduz a decisão do cliente da indústria, a prática assistencial e a operação da clínica.</p>
     </div>
     <div class="complementary-grid">
       <details class="complementary-card" open>
-        <summary><span>Visão de liderança</span><b>Marcel Zetun</b><small>Diretor responsável por Saúde Feminina, Imunologia, Alianças e Novos Negócios</small></summary>
+        <summary><span>Diretoria de Fertilidade</span><b>Marcel Zetun</b><small>Diretor responsável por Saúde Feminina, Imunologia, Alianças e Novos Negócios</small></summary>
         <div class="complementary-body">
           <div><strong>Leitura estratégica</strong><p>Fertilidade é uma franquia menor e enxuta, porém estratégica: Elonva é o principal motor de diferenciação; Clomid contribui em faturamento e capilaridade; Puregon precisa crescer junto à arquitetura de Elonva; Orgalutran exige gestão realista de uma categoria pressionada.</p></div>
           <div><strong>O que muda para 2027</strong><p>Preservar a narrativa de jornada mais amigável, mas conectá-la à disciplina financeira: decidir onde crescer, controlar erosão de preço em contas premium e médias, e medir se uma condição comercial gera volume e recompra sustentáveis.</p></div>
@@ -47,7 +49,7 @@
         </div>
       </details>
       <details class="complementary-card">
-        <summary><span>Visão de clínica e paciente</span><b>Dra. Altina</b><small>Diretora técnica da Arte Fértil, Recife, e professora de Ginecologia e Obstetrícia</small></summary>
+        <summary><span>Área Médica — Clínica</span><b>Dra. Altina</b><small>Diretora técnica da Arte Fértil, Recife, e professora de Ginecologia e Obstetrícia</small></summary>
         <div class="complementary-body">
           <div><strong>Contexto assistencial</strong><p>A clínica realiza cerca de 40 a 45 ciclos por mês, majoritariamente de alta complexidade. A entrevista aponta aumento relevante de congelamento de óvulos após a pandemia, com redes sociais como gatilho inicial e recomendação de amigas como fator de confiança.</p></div>
           <div><strong>Decisão por perfil de paciente</strong><p>Não há uma escolha única de medicamento: idade, reserva ovariana, histórico, objetivo do ciclo, rotina, medo de injeção e capacidade financeira alteram a conduta. Para pacientes jovens em congelamento ou doação, conveniência e menor interferência na rotina ganham peso; para pacientes mais velhas ou baixa respondedora, protocolos com LH podem ser considerados pelo médico.</p></div>
@@ -58,13 +60,6 @@
       </details>
     </div>`;
   chips.parentElement.appendChild(section);
-  const roster = areas.querySelector('.area-roster');
-  if (roster && !areas.querySelector('.complementary-roster')) {
-    const extra = document.createElement('div');
-    extra.className = 'complementary-roster';
-    extra.innerHTML = `<div class="eyebrow">Perspectivas complementares entrevistadas</div><div class="complementary-roster-grid"><div><span>Liderança</span><b>Marcel Zetun</b><small>Direção de Saúde Feminina, Imunologia, Alianças e Novos Negócios</small></div><div><span>Prática clínica</span><b>Dra. Altina</b><small>Diretora técnica de clínica de reprodução assistida e docente</small></div></div>`;
-    roster.parentElement.insertAdjacentElement('afterend', extra);
-  }
   const style = document.createElement('style');
   style.textContent = `.complementary-roster{margin:0 0 16px;padding:14px 16px;border:1px solid #d8e4e2;border-radius:13px;background:#fff}.complementary-roster-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}.complementary-roster-grid>div{padding:11px;border-radius:9px;background:#f7fbfa;border:1px solid #d8e4e2}.complementary-roster span{display:block;color:#007f79;font-size:10px;text-transform:uppercase;letter-spacing:.07em;font-weight:800}.complementary-roster b{display:block;color:#062b41;font-size:14px;margin:4px 0 2px}.complementary-roster small{display:block;color:#5f767c;font-size:10px;line-height:1.25}.complementary-interviews{margin-top:22px;padding-top:20px;border-top:1px solid #d8e4e2}.complementary-heading{display:flex;justify-content:space-between;gap:22px;align-items:end;margin-bottom:13px}.complementary-heading h3{font-size:22px;margin:4px 0;color:#062b41}.complementary-heading p{max-width:480px;margin:0;color:#5f767c;font-size:12px;line-height:1.5}.complementary-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.complementary-card{border:1px solid #d8e4e2;border-radius:13px;background:#f7fbfa;overflow:hidden}.complementary-card summary{list-style:none;cursor:pointer;padding:17px 18px;background:#fff}.complementary-card summary::-webkit-details-marker{display:none}.complementary-card summary span{display:block;color:#007f79;font-size:10px;text-transform:uppercase;letter-spacing:.08em;font-weight:800}.complementary-card summary b{display:block;margin:6px 24px 3px 0;font-size:20px;color:#062b41}.complementary-card summary small{display:block;color:#5f767c;font-size:11px;line-height:1.35}.complementary-card summary:after{content:'+';float:right;margin-top:-42px;color:#007f79;font-size:22px;font-weight:400}.complementary-card[open] summary:after{content:'−'}.complementary-body{padding:0 18px 18px;display:grid;gap:10px}.complementary-body>div{background:#fff;border-left:3px solid #00a69a;padding:10px 12px}.complementary-body strong{display:block;font-size:11px;color:#062b41}.complementary-body p{margin:4px 0 0;font-size:11px;line-height:1.48;color:#4a666e}@media(max-width:780px){.complementary-grid,.complementary-roster-grid{grid-template-columns:1fr}.complementary-heading{display:block}.complementary-heading p{margin-top:7px}}`;
   document.head.appendChild(style);
