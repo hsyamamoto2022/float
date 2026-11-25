@@ -7,7 +7,7 @@
   // Move interview recurrence from Analytics to Interviews.
   const recurrence=[...analytics?.querySelectorAll('.box')||[]].find(x=>x.querySelector('h3')?.textContent.includes('Recorrência temática'));
   if(recurrence && interviews && !interviews.querySelector('.interview-recurrence')){
-    const panel=document.createElement('div');panel.className='panel interview-recurrence';panel.innerHTML='<div class="eyebrow">Leitura transversal das entrevistas</div><h2>Temas recorrentes na base codificada de 10 entrevistas.</h2><p class="intro">O estudo reúne 12 entrevistas: 6 áreas internas, 5 consultores de campo e 1 cliente-clínica. Este gráfico preserva a codificação original das 10 conversas internas e de campo; as entrevistas de Marcel e Dra. Altina foram incorporadas como leituras qualitativas aprofundadas, sem recalcular artificialmente a recorrência.</p>';
+    const panel=document.createElement('div');panel.className='panel interview-recurrence';panel.innerHTML='<div class="eyebrow">Leitura transversal das entrevistas</div><h2>Temas recorrentes na base codificada de 10 entrevistas.</h2><p class="intro">O estudo reúne 12 entrevistas: 5 áreas, 1 diretoria, 5 consultores de campo e 1 cliente-clínica. Este gráfico preserva a codificação original das 10 conversas internas e de campo; as entrevistas de Marcel e Dra. Altina foram incorporadas como leituras qualitativas aprofundadas, sem recalcular artificialmente a recorrência.</p>';
     panel.appendChild(recurrence);interviews.querySelector('.interview-consolidated')?.insertAdjacentElement('afterend',panel);
   }
 
