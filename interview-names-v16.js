@@ -8,8 +8,7 @@
     ['Liderança de Vendas','Mario Henrique','Liderança de Vendas / Franquia'],
     ['Comercial','Dernival Cardoso','Comercial Nacional / Distribuição'],
     ['Acesso','Carlson Andrade','Acesso / Agenda Institucional'],
-    ['Diretoria de Fertilidade','Marcel Zetun','Diretoria de Fertilidade / Saúde Feminina'],
-    ['Área Médica — Clínica','Dra. Altina','Cliente-clínica / Reprodução Assistida']
+    ['Diretoria de Fertilidade','Marcel Zetun','Diretoria de Fertilidade / Saúde Feminina']
   ];
   [...chips.children].forEach((chip) => {
     const row = people.find(([area]) => chip.textContent.trim() === area);
@@ -18,11 +17,11 @@
   if (!areas.querySelector('.area-interviewees')) {
     const roster = document.createElement('div');
     roster.className = 'area-interviewees';
-    roster.innerHTML = `<div class="eyebrow">Quem foi entrevistado</div><h3>Visões das áreas entrevistadas</h3><div class="area-roster">${people.map(([area,name,role]) => `<div><span>${area}</span><b>${name}</b><small>${role}</small></div>`).join('')}</div>`;
+    roster.innerHTML = `<div class="eyebrow">12 entrevistas no total</div><h3>6 áreas internas · 5 consultores de campo · 1 cliente-clínica</h3><div class="interview-scope"><span><b>06</b> áreas internas</span><span><b>05</b> consultores de campo</span><span><b>01</b> cliente-clínica</span></div><div class="eyebrow roster-kicker">Visões das áreas internas</div><div class="area-roster">${people.map(([area,name,role]) => `<div><span>${area}</span><b>${name}</b><small>${role}</small></div>`).join('')}</div>`;
     chips.insertAdjacentElement('beforebegin', roster);
   }
   const style = document.createElement('style');
-  style.textContent = `.area-interviewees{padding:16px;margin:16px 0;border:1px solid #d8e4e2;border-radius:13px;background:#f7fbfa}.area-interviewees h3{margin:4px 0 12px;font-size:19px;color:#062b41}.area-roster{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.area-roster>div{padding:11px;border-radius:9px;background:#fff;border:1px solid #d8e4e2}.area-roster span{display:block;color:#007f79;font-size:10px;text-transform:uppercase;letter-spacing:.07em;font-weight:800}.area-roster b{display:block;color:#062b41;font-size:14px;margin:4px 0 2px}.area-roster small{display:block;color:#5f767c;font-size:10px;line-height:1.25}.chips#areaChips button{display:flex;flex-direction:column;align-items:flex-start;gap:1px}.chips#areaChips button small{font-size:10px;opacity:.78;font-weight:600}@media(max-width:900px){.area-roster{grid-template-columns:repeat(2,1fr)}}@media(max-width:520px){.area-roster{grid-template-columns:1fr}}`;
+  style.textContent = `.area-interviewees{padding:16px;margin:16px 0;border:1px solid #d8e4e2;border-radius:13px;background:#f7fbfa}.area-interviewees h3{margin:4px 0 12px;font-size:19px;color:#062b41}.interview-scope{display:flex;gap:8px;margin:0 0 14px}.interview-scope span{flex:1;padding:9px 10px;border-radius:8px;background:#fff;border:1px solid #d8e4e2;color:#5f767c;font-size:11px}.interview-scope b{font-size:17px;color:#007f79;margin-right:4px}.roster-kicker{margin:2px 0 8px}.area-roster{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.area-roster>div{padding:11px;border-radius:9px;background:#fff;border:1px solid #d8e4e2}.area-roster span{display:block;color:#007f79;font-size:10px;text-transform:uppercase;letter-spacing:.07em;font-weight:800}.area-roster b{display:block;color:#062b41;font-size:14px;margin:4px 0 2px}.area-roster small{display:block;color:#5f767c;font-size:10px;line-height:1.25}.chips#areaChips button{display:flex;flex-direction:column;align-items:flex-start;gap:1px}.chips#areaChips button small{font-size:10px;opacity:.78;font-weight:600}@media(max-width:900px){.area-roster{grid-template-columns:repeat(2,1fr)}}@media(max-width:520px){.area-roster,.interview-scope{grid-template-columns:1fr;display:grid}}`;
   document.head.appendChild(style);
 })();
 
@@ -34,8 +33,8 @@
   section.className = 'complementary-interviews';
   section.innerHTML = `
     <div class="complementary-heading">
-      <div><div class="eyebrow">ÁREAS ENTREVISTADAS</div><h3>Duas áreas decisivas para a estratégia de fertilidade.</h3></div>
-      <p>Diretoria de Fertilidade define a lente de negócio, priorização e governança. Área Médica — Clínica traduz a decisão do cliente da indústria, a prática assistencial e a operação da clínica.</p>
+      <div><div class="eyebrow">DUAS LENTES ESTRATÉGICAS</div><h3>Diretoria de Fertilidade e cliente-clínica: decisão interna e realidade de uso.</h3></div>
+      <p>Marcel integra a visão interna da Diretoria de Fertilidade. Dra. Altina é uma voz externa, de quem prescreve, compra e utiliza as soluções da indústria no cuidado de pacientes — por isso não deve ser confundida com uma área interna ou com o campo.</p>
     </div>
     <div class="complementary-grid">
       <details class="complementary-card" open>
@@ -49,7 +48,7 @@
         </div>
       </details>
       <details class="complementary-card">
-        <summary><span>Área Médica — Clínica</span><b>Dra. Altina</b><small>Diretora técnica da Arte Fértil, Recife, e professora de Ginecologia e Obstetrícia</small></summary>
+        <summary><span>Cliente-clínica / especialista usuária</span><b>Dra. Altina</b><small>Diretora técnica da Arte Fértil, Recife, e professora de Ginecologia e Obstetrícia</small></summary>
         <div class="complementary-body">
           <div><strong>Contexto assistencial</strong><p>A clínica realiza cerca de 40 a 45 ciclos por mês, majoritariamente de alta complexidade. A entrevista aponta aumento relevante de congelamento de óvulos após a pandemia, com redes sociais como gatilho inicial e recomendação de amigas como fator de confiança.</p></div>
           <div><strong>Decisão por perfil de paciente</strong><p>Não há uma escolha única de medicamento: idade, reserva ovariana, histórico, objetivo do ciclo, rotina, medo de injeção e capacidade financeira alteram a conduta. Para pacientes jovens em congelamento ou doação, conveniência e menor interferência na rotina ganham peso; para pacientes mais velhas ou baixa respondedora, protocolos com LH podem ser considerados pelo médico.</p></div>
