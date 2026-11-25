@@ -14,22 +14,26 @@
   const areaView = document.createElement("div");
   while (areasPanel.firstChild) areaView.appendChild(areasPanel.firstChild);
 
+  const directorView = document.createElement("div");
+  directorView.id = "interviewDirectorView";
+  directorView.className = "interview-segment-view";
+  directorView.style.display = "none";
+  const clientView = document.createElement("div");
+  clientView.id = "interviewClientView";
+  clientView.className = "interview-segment-view";
+  clientView.style.display = "none";
   const interviewTabs = document.createElement("div");
   interviewTabs.className = "interview-tabs";
-  interviewTabs.innerHTML = '<button class="active">Visões das áreas</button><button>Visões do campo</button>';
-  areasPanel.append(interviewTabs, areaView, fieldPanel);
+  interviewTabs.innerHTML = '<button class="active" data-view="areas">Visões das áreas <small>05</small></button><button data-view="director">Visão da diretoria <small>01</small></button><button data-view="field">Visões do campo <small>05</small></button><button data-view="client">Visão cliente-clínica <small>01</small></button>';
+  areasPanel.append(interviewTabs, areaView, directorView, fieldPanel, clientView);
   fieldPage.remove();
   fieldPanel.style.display = "none";
 
-  const [areasTab, fieldTab] = interviewTabs.querySelectorAll("button");
-  areasTab.onclick = () => {
-    areasTab.classList.add("active"); fieldTab.classList.remove("active");
-    areaView.style.display = ""; fieldPanel.style.display = "none";
-  };
-  fieldTab.onclick = () => {
-    fieldTab.classList.add("active"); areasTab.classList.remove("active");
-    areaView.style.display = "none"; fieldPanel.style.display = "";
-  };
+  const views={areas:areaView,director:directorView,field:fieldPanel,client:clientView};
+  [...interviewTabs.querySelectorAll("button")].forEach(tab=>tab.onclick=()=>{
+    [...interviewTabs.querySelectorAll("button")].forEach(x=>x.classList.toggle("active",x===tab));
+    Object.entries(views).forEach(([key,view])=>view.style.display=key===tab.dataset.view?"":"none");
+  });
 
   const planning = document.createElement("section");
   planning.id = "planning";
@@ -95,5 +99,6 @@
   const style = document.createElement("style");
   style.textContent = `
     .interview-tabs{display:flex;gap:7px;margin:0 0 20px;border-bottom:1px solid #d8e4e2;padding-bottom:10px}.interview-tabs button{border:1px solid #d8e4e2;background:#fff;border-radius:9px;padding:9px 13px;font-weight:800;color:#5f767c;cursor:pointer}.interview-tabs button.active{background:#062b41;color:#fff;border-color:#062b41}.planning-hero{background:linear-gradient(120deg,#062b41,#097a76);color:#fff}.planning-hero .eyebrow{color:#b8e5dd}.planning-hero h2{font-size:36px;max-width:680px}.planning-hero .intro{color:#d5e6e7}.strategy-grid,.planning-products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:20px}.strategy-grid article{border:1px solid #77b5af;background:#ffffff13;border-radius:12px;padding:16px}.strategy-grid b{font-size:16px}.strategy-grid p{margin:6px 0 0;color:#deefef}.marketing-flow{display:grid;grid-template-columns:repeat(5,1fr);align-items:center;gap:8px}.marketing-flow div{border:1px solid #d8e4e2;border-radius:11px;padding:14px;min-height:110px;background:#f5fbfa}.marketing-flow strong{display:block;color:#007f79}.marketing-flow span{display:block;font-size:12px;color:#5f767c;margin-top:5px}.marketing-flow i{font-style:normal;color:#00a69a;font-size:22px;text-align:center}.planning-products article{padding:19px;border:1px solid #d8e4e2;border-radius:12px;background:#fff}.planning-products article:nth-child(1){border-top:5px solid #d8aa37}.planning-products article:nth-child(2){border-top:5px solid #00a69a}.planning-products article:nth-child(3){border-top:5px solid #5399c9}.planning-products article:nth-child(4){border-top:5px solid #eb7467}.planning-products p{font-size:13px;color:#405b63}.product-kicker{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#007f79}.planning-table{border-collapse:collapse;width:100%;font-size:13px}.planning-table th{background:#062b41;color:#fff;text-align:left;padding:11px}.planning-table td{padding:12px;border-bottom:1px solid #d8e4e2;vertical-align:top}.planning-table td:first-child{font-weight:800;color:#007f79}@media(max-width:780px){.strategy-grid,.planning-products,.marketing-flow{grid-template-columns:1fr}.marketing-flow i{transform:rotate(90deg)}}`;
+  style.textContent += `.interview-tabs button{display:inline-flex;gap:7px;align-items:center}.interview-tabs button small{display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 4px;border-radius:20px;background:#edf4f2;color:#007f79;font-size:10px}.interview-tabs button.active small{background:#0b667d;color:#fff}.interview-segment-panel{margin-top:2px}.interview-segment-panel .complementary-card{margin-top:16px}.interview-segment-panel .complementary-body{grid-template-columns:repeat(2,minmax(0,1fr))}@media(max-width:780px){.interview-tabs{flex-wrap:wrap}.interview-segment-panel .complementary-body{grid-template-columns:1fr}}`;
   document.head.appendChild(style);
 })();
