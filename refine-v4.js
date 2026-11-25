@@ -8,7 +8,7 @@
   if (home && interviews) {
     const consolidated = document.createElement('div');
     consolidated.className = 'interview-consolidated';
-    consolidated.innerHTML = '<div class="eyebrow">Leitura transversal das 10 entrevistas</div><h2>Visão consolidada: o que as vozes internas têm em comum.</h2><p class="intro">Esta leitura passa a ser parte de Entrevistas, antes da visão individual das áreas e do campo. Ela mostra temas recorrentes, tensões e decisões que precisam orientar o plano.</p>';
+    consolidated.innerHTML = '<div class="eyebrow">Leitura transversal do estudo · 12 entrevistas</div><h2>Visão consolidada: o que as vozes internas, o campo e a cliente-clínica revelam.</h2><p class="intro">O estudo reúne 6 áreas internas, 5 consultores de campo e 1 cliente-clínica. A leitura consolidada conecta temas recorrentes, tensões e decisões que precisam orientar o plano, preservando a origem de cada tipo de voz.</p>';
     while (home.firstChild) consolidated.appendChild(home.firstChild);
     interviews.prepend(consolidated);
     home.remove();
@@ -27,7 +27,7 @@
   const source = '<div class="source-strip"><b>Classificação de trabalho:</b> Certezas são sinais documentados no overview/entrevistas; Suposições devem ser testadas; Dúvidas definem a agenda de evidências. Não são afirmações clínicas.</div>';
   const csdData = {
     'Visão da franquia':{
-      c:[['Educação e relacionamento são recorrentes','Foram apontados pelas dez vozes como condições para avançar em contas e crenças.'],['Canal e disponibilidade definem parte do resultado','Entrevistas Comercial e Campo conectam ruptura, validade e execução à perda de oportunidade.'],['As marcas têm papéis distintos','Capilaridade, diferenciação, continuidade e defesa não podem usar uma única tática.']],
+      c:[['Educação e relacionamento são recorrentes','Aparecem de forma consistente na base interna e de campo; a cliente-clínica reforça seu papel na preparação e no encaminhamento.'],['Canal e disponibilidade definem parte do resultado','Entrevistas Comercial e Campo conectam ruptura, validade e execução à perda de oportunidade.'],['As marcas têm papéis distintos','Capilaridade, diferenciação, continuidade e defesa não podem usar uma única tática.']],
       s:[['Segmentar por barreira melhora a conversão','Testar clusters por ciência, protocolo, preço, experiência e canal.'],['Jornada integrada reduz dispersão de investimento','Testar se ativação coordenada altera a próxima ação da conta.'],['Ritual mensal acelera a correção','Testar se governança reduz ações sem dono ou medida.']],
       d:[['Qual é o baseline único de cada KPI?','Definir fonte, período, recorte e responsável antes de meta.'],['Quais contas têm maior conversibilidade?','Cruzar potencial, protocolo, relacionamento e canal.'],['Que ação gera mudança sustentada?','Medir adoção e mix, não só presença/atividade.']]
     },
