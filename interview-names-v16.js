@@ -7,8 +7,7 @@
     ['Médica','Viviane Santana','Área Médica'],
     ['Liderança de Vendas','Mario Henrique','Liderança de Vendas / Franquia'],
     ['Comercial','Dernival Cardoso','Comercial Nacional / Distribuição'],
-    ['Acesso','Carlson Andrade','Acesso / Agenda Institucional'],
-    ['Diretoria de Fertilidade','Marcel Zetun','Diretoria de Fertilidade / Saúde Feminina']
+    ['Acesso','Carlson Andrade','Acesso / Agenda Institucional']
   ];
   [...chips.children].forEach((chip) => {
     const row = people.find(([area]) => chip.textContent.trim() === area);
@@ -17,11 +16,11 @@
   if (!areas.querySelector('.area-interviewees')) {
     const roster = document.createElement('div');
     roster.className = 'area-interviewees';
-    roster.innerHTML = `<div class="eyebrow">12 entrevistas no total</div><h3>6 áreas internas · 5 consultores de campo · 1 cliente-clínica</h3><div class="interview-scope"><span><b>06</b> áreas internas</span><span><b>05</b> consultores de campo</span><span><b>01</b> cliente-clínica</span></div><div class="eyebrow roster-kicker">Visões das áreas internas</div><div class="area-roster">${people.map(([area,name,role]) => `<div><span>${area}</span><b>${name}</b><small>${role}</small></div>`).join('')}</div>`;
+    roster.innerHTML = `<div class="eyebrow">12 entrevistas no total</div><h3>5 áreas entrevistadas · 1 diretoria · 5 consultores de campo · 1 cliente-clínica</h3><div class="interview-scope"><span><b>05</b> áreas</span><span><b>01</b> diretoria</span><span><b>05</b> campo</span><span><b>01</b> cliente-clínica</span></div><div class="eyebrow roster-kicker">Visões das áreas entrevistadas</div><div class="area-roster">${people.map(([area,name,role]) => `<div><span>${area}</span><b>${name}</b><small>${role}</small></div>`).join('')}</div>`;
     chips.insertAdjacentElement('beforebegin', roster);
   }
   const style = document.createElement('style');
-  style.textContent = `.area-interviewees{padding:16px;margin:16px 0;border:1px solid #d8e4e2;border-radius:13px;background:#f7fbfa}.area-interviewees h3{margin:4px 0 12px;font-size:19px;color:#062b41}.interview-scope{display:flex;gap:8px;margin:0 0 14px}.interview-scope span{flex:1;padding:9px 10px;border-radius:8px;background:#fff;border:1px solid #d8e4e2;color:#5f767c;font-size:11px}.interview-scope b{font-size:17px;color:#007f79;margin-right:4px}.roster-kicker{margin:2px 0 8px}.area-roster{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.area-roster>div{padding:11px;border-radius:9px;background:#fff;border:1px solid #d8e4e2}.area-roster span{display:block;color:#007f79;font-size:10px;text-transform:uppercase;letter-spacing:.07em;font-weight:800}.area-roster b{display:block;color:#062b41;font-size:14px;margin:4px 0 2px}.area-roster small{display:block;color:#5f767c;font-size:10px;line-height:1.25}.chips#areaChips button{display:flex;flex-direction:column;align-items:flex-start;gap:1px}.chips#areaChips button small{font-size:10px;opacity:.78;font-weight:600}@media(max-width:900px){.area-roster{grid-template-columns:repeat(2,1fr)}}@media(max-width:520px){.area-roster,.interview-scope{grid-template-columns:1fr;display:grid}}`;
+  style.textContent = `.area-interviewees{padding:16px;margin:16px 0;border:1px solid #d8e4e2;border-radius:13px;background:#f7fbfa}.area-interviewees h3{margin:4px 0 12px;font-size:19px;color:#062b41}.interview-scope{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:0 0 14px}.interview-scope span{padding:9px 10px;border-radius:8px;background:#fff;border:1px solid #d8e4e2;color:#5f767c;font-size:11px}.interview-scope b{font-size:17px;color:#007f79;margin-right:4px}.roster-kicker{margin:2px 0 8px}.area-roster{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.area-roster>div{padding:11px;border-radius:9px;background:#fff;border:1px solid #d8e4e2}.area-roster span{display:block;color:#007f79;font-size:10px;text-transform:uppercase;letter-spacing:.07em;font-weight:800}.area-roster b{display:block;color:#062b41;font-size:14px;margin:4px 0 2px}.area-roster small{display:block;color:#5f767c;font-size:10px;line-height:1.25}.chips#areaChips button{display:flex;flex-direction:column;align-items:flex-start;gap:1px}.chips#areaChips button small{font-size:10px;opacity:.78;font-weight:600}@media(max-width:900px){.area-roster{grid-template-columns:repeat(2,1fr)}}@media(max-width:520px){.area-roster,.interview-scope{grid-template-columns:1fr}}`;
   document.head.appendChild(style);
 })();
 
@@ -59,6 +58,17 @@
       </details>
     </div>`;
   chips.parentElement.appendChild(section);
+  const directorView = document.getElementById('interviewDirectorView');
+  const clientView = document.getElementById('interviewClientView');
+  const [directorCard, clientCard] = section.querySelectorAll('.complementary-card');
+  const buildSegment = (slot, eyebrow, title, intro, card) => {
+    if (!slot || !card) return;
+    slot.innerHTML = `<div class="panel interview-segment-panel"><div class="eyebrow">${eyebrow}</div><h2>${title}</h2><p class="intro">${intro}</p></div>`;
+    slot.querySelector('.interview-segment-panel').appendChild(card);
+  };
+  buildSegment(directorView,'DIRETORIA DE FERTILIDADE · 01 ENTREVISTA','A lente de negócio que organiza prioridade, investimento e governança.','A visão da Diretoria de Fertilidade é interna e estratégica: ela traduz o papel da franquia, a lógica de crescimento, as escolhas de conta, a disciplina financeira e o modelo de execução para 2027.',directorCard);
+  buildSegment(clientView,'CLIENTE-CLÍNICA · 01 ENTREVISTA','Quem prescreve, compra e usa as soluções no cuidado da paciente.','Esta é uma voz externa: a especialista usuária representa a realidade de decisão clínica, operação da clínica, barreiras da paciente e critérios que a indústria precisa compreender para gerar valor.',clientCard);
+  section.remove();
   const style = document.createElement('style');
   style.textContent = `.complementary-roster{margin:0 0 16px;padding:14px 16px;border:1px solid #d8e4e2;border-radius:13px;background:#fff}.complementary-roster-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}.complementary-roster-grid>div{padding:11px;border-radius:9px;background:#f7fbfa;border:1px solid #d8e4e2}.complementary-roster span{display:block;color:#007f79;font-size:10px;text-transform:uppercase;letter-spacing:.07em;font-weight:800}.complementary-roster b{display:block;color:#062b41;font-size:14px;margin:4px 0 2px}.complementary-roster small{display:block;color:#5f767c;font-size:10px;line-height:1.25}.complementary-interviews{margin-top:22px;padding-top:20px;border-top:1px solid #d8e4e2}.complementary-heading{display:flex;justify-content:space-between;gap:22px;align-items:end;margin-bottom:13px}.complementary-heading h3{font-size:22px;margin:4px 0;color:#062b41}.complementary-heading p{max-width:480px;margin:0;color:#5f767c;font-size:12px;line-height:1.5}.complementary-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.complementary-card{border:1px solid #d8e4e2;border-radius:13px;background:#f7fbfa;overflow:hidden}.complementary-card summary{list-style:none;cursor:pointer;padding:17px 18px;background:#fff}.complementary-card summary::-webkit-details-marker{display:none}.complementary-card summary span{display:block;color:#007f79;font-size:10px;text-transform:uppercase;letter-spacing:.08em;font-weight:800}.complementary-card summary b{display:block;margin:6px 24px 3px 0;font-size:20px;color:#062b41}.complementary-card summary small{display:block;color:#5f767c;font-size:11px;line-height:1.35}.complementary-card summary:after{content:'+';float:right;margin-top:-42px;color:#007f79;font-size:22px;font-weight:400}.complementary-card[open] summary:after{content:'−'}.complementary-body{padding:0 18px 18px;display:grid;gap:10px}.complementary-body>div{background:#fff;border-left:3px solid #00a69a;padding:10px 12px}.complementary-body strong{display:block;font-size:11px;color:#062b41}.complementary-body p{margin:4px 0 0;font-size:11px;line-height:1.48;color:#4a666e}@media(max-width:780px){.complementary-grid,.complementary-roster-grid{grid-template-columns:1fr}.complementary-heading{display:block}.complementary-heading p{margin-top:7px}}`;
   document.head.appendChild(style);
