@@ -76,3 +76,9 @@
     if (chart) chart.innerHTML = '<h3>Recorrência temática nas 13 entrevistas</h3><div class="barrow"><span>Ações / coordenação</span><div class="bartrack"><div class="barfill" style="width:100%"></div></div><b class="barvalue">13/13</b></div><div class="barrow"><span>Paciente / acesso</span><div class="bartrack"><div class="barfill" style="width:92.3%"></div></div><b class="barvalue">12/13</b></div><div class="barrow"><span>Portfólio e estratégia</span><div class="bartrack"><div class="barfill" style="width:92.3%"></div></div><b class="barvalue">12/13</b></div><div class="barrow"><span>Eventos e conteúdo</span><div class="bartrack"><div class="barfill" style="width:92.3%"></div></div><b class="barvalue">12/13</b></div><div class="barrow"><span>Ciência e protocolos</span><div class="bartrack"><div class="barfill blue" style="width:84.6%"></div></div><b class="barvalue">11/13</b></div><div class="barrow"><span>Dados e segmentação</span><div class="bartrack"><div class="barfill gold" style="width:69.2%"></div></div><b class="barvalue">9/13</b></div><div class="barrow"><span>Canal / abastecimento</span><div class="bartrack"><div class="barfill coral" style="width:53.8%"></div></div><b class="barvalue">7/13</b></div><p class="axisnote">Presença temática após recodificação das 13 entrevistas: 5 áreas, 1 diretoria, 5 consultores de campo e 2 cliente-clínica. Não é medida de importância estatística.</p>';
   }
 })();
+
+(() => {
+  const script = document.createElement('script');
+  script.src = '/planning-prioritization-v30.js';
+  document.body.appendChild(script);
+})();
