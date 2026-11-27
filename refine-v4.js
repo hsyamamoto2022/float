@@ -8,7 +8,7 @@
   if (home && interviews) {
     const consolidated = document.createElement('div');
     consolidated.className = 'interview-consolidated';
-    consolidated.innerHTML = '<div class="eyebrow">Leitura transversal do estudo · 12 entrevistas</div><h2>Visão consolidada: o que as áreas, a diretoria, o campo e a cliente-clínica revelam.</h2><p class="intro">O estudo reúne 5 áreas, 1 diretoria, 5 consultores de campo e 1 cliente-clínica. A leitura consolidada conecta temas recorrentes, tensões e decisões que precisam orientar o plano, preservando a origem de cada tipo de voz.</p>';
+    consolidated.innerHTML = '<div class="eyebrow">Leitura transversal do estudo · 13 entrevistas</div><h2>Visão consolidada: o que as áreas, a diretoria, o campo e duas lideranças cliente-clínica revelam.</h2><p class="intro">O estudo reúne 5 áreas, 1 diretoria, 5 consultores de campo e 2 cliente-clínica. A leitura consolidada conecta temas recorrentes, tensões e decisões que precisam orientar o plano, preservando a origem de cada tipo de voz.</p>';
     while (home.firstChild) consolidated.appendChild(home.firstChild);
     interviews.prepend(consolidated);
     home.remove();
