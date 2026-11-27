@@ -8,7 +8,7 @@
     <div class="eyebrow">Priorização de iniciativas · impacto × custo</div>
     <h2>Onde colocar energia em 2027 — e o que não deve virar prioridade.</h2>
     <p class="intro">A matriz orienta a sequência de execução. Impacto considera potencial de mudança clínica, adoção, experiência e resultado de conta; custo combina investimento, esforço de implantação e dependências. É uma direção de trabalho para validar em workshop, não um orçamento aprovado.</p>
-    <div class="matrix-caption"><span>Impacto esperado ↑</span><strong>Custo / esforço: baixo → alto</strong></div>
+    <div class="matrix-caption"><span>↑ IMPACTO ESPERADO</span><strong>BAIXO CUSTO <span aria-hidden="true">━━━→</span> ALTO CUSTO</strong></div>
     <div class="priority-matrix" aria-label="Matriz de impacto por custo">
       <article class="quadrant first"><span class="quadrant-tag">Alto impacto · menor custo</span><h3>Faça primeiro</h3><ul><li>Planos de conta por barreira dominante e decisor.</li><li>Educação para ginecologistas sobre preservação e encaminhamento precoce.</li><li>Ritual pós-ação 30/60/90 dias para ativar equipe e prescritor.</li></ul></article>
       <article class="quadrant phase"><span class="quadrant-tag">Alto impacto · maior custo</span><h3>Crie fases no roadmap</h3><ul><li>Programa de experiência da paciente com clínicas prioritárias.</li><li>Awareness não promocional sobre fertilidade e preservação.</li><li>Governança de previsão, estoque e reposição por conta.</li></ul></article>
@@ -37,4 +37,43 @@
   const polish = document.createElement('style');
   polish.textContent = `.priority-matrix{position:relative;gap:14px;padding:12px 12px 18px 18px;border:0;background:linear-gradient(90deg,#087d75 0 3px,transparent 3px),linear-gradient(0deg,#087d75 0 3px,transparent 3px);background-repeat:no-repeat;background-size:100% 100%;border-radius:0 0 0 16px}.quadrant{min-height:202px;box-shadow:0 8px 20px rgba(15,62,66,.06);transition:transform .2s ease,box-shadow .2s ease}.quadrant:hover{transform:translateY(-3px);box-shadow:0 14px 28px rgba(15,62,66,.12)}.quadrant h3{font-size:23px;letter-spacing:-.02em}.quadrant-tag{display:inline-flex;padding:5px 8px;border-radius:999px;background:rgba(255,255,255,.68)}.kpi-kor-2027{margin-top:24px;padding:22px;border:1px solid #cfe5e1;border-radius:16px;background:radial-gradient(circle at 100% 0,#e0f5f0 0,transparent 37%),#fff}.kpi-header{display:flex;justify-content:space-between;align-items:end;gap:28px;margin-bottom:18px}.kpi-header h3{margin:6px 0 0;color:#173d49;font-size:24px;max-width:680px}.kpi-header p{margin:0;max-width:390px;color:#587078;font-size:12px;line-height:1.48}.metric-columns{display:grid;grid-template-columns:1fr 1fr;gap:14px}.metric-column{overflow:hidden;border-radius:13px;border:1px solid #d8e8e5;background:#fff}.metric-title{padding:14px 16px;background:#eef9f7;border-bottom:1px solid #d8e8e5}.metric-title span{display:block;font-size:10px;font-weight:900;letter-spacing:.13em;color:#00877e}.metric-title b{display:block;color:#173d49;font-size:15px;margin-top:3px}.kor-column .metric-title{background:#083f50}.kor-column .metric-title span{color:#9fe3d8}.kor-column .metric-title b{color:#fff}.metric-row{padding:12px 16px;border-bottom:1px solid #e6efed}.metric-row:last-child{border-bottom:0}.metric-row strong{display:block;color:#164552;font-size:13px}.metric-row small{display:block;margin-top:3px;color:#5b747a;font-size:12px;line-height:1.38}.metric-footer{margin-top:14px;padding:12px 14px;border-radius:9px;background:#073a4b;color:#dcefed;font-size:12px;line-height:1.45}.metric-footer strong{color:#a8e6dc}@media(max-width:780px){.kpi-header,.metric-columns{display:block}.kpi-header p{margin-top:10px}.kor-column{margin-top:12px}.kpi-kor-2027{padding:16px}.quadrant{min-height:0}}`;
   document.head.appendChild(polish);
+  const premium = document.createElement('style');
+  premium.textContent = `
+    #planning .priority-2027{background:#fff!important;border:1px solid #dce9e6!important;box-shadow:0 24px 60px rgba(8,48,58,.07)!important;padding:clamp(24px,3vw,42px)!important}
+    #planning .priority-2027>h2{font-size:clamp(28px,3vw,42px);line-height:1.08;letter-spacing:-.035em;color:#123745}
+    #planning .priority-2027>.intro{font-size:16px;max-width:900px}
+    #planning .matrix-caption{margin:34px 0 12px;padding:0 4px;font-size:12px;letter-spacing:.13em;color:#3f6671}
+    #planning .matrix-caption span{color:#087e7a}
+    #planning .matrix-caption strong span{padding:0 10px;color:#0d938b}
+    #planning .priority-matrix{gap:3px;background:#fff;border:1px solid #d3e3e1;border-radius:18px;overflow:hidden;padding:3px;box-shadow:0 15px 35px rgba(8,48,58,.08)}
+    #planning .quadrant{border:0!important;border-radius:14px;min-height:240px;padding:25px 28px;box-shadow:none!important;transform:none!important;position:relative;overflow:hidden}
+    #planning .quadrant:before{content:"";position:absolute;left:0;top:24px;bottom:24px;width:5px;border-radius:0 5px 5px 0;background:var(--accent)}
+    #planning .quadrant.first{--accent:#008c7d;background:#e9f7f3}
+    #planning .quadrant.phase{--accent:#477eaa;background:#ecf3fa}
+    #planning .quadrant.fit{--accent:#b58b22;background:#fcf6e8}
+    #planning .quadrant.stop{--accent:#d26558;background:#fcf0ed}
+    #planning .quadrant .quadrant-tag{padding:0;background:transparent;color:var(--accent);font-size:12px;letter-spacing:.11em}
+    #planning .quadrant h3{font-size:clamp(21px,2vw,28px);line-height:1.1;margin:12px 0 20px;letter-spacing:-.035em;color:#143b47}
+    #planning .quadrant ul{list-style:none;padding:0;margin:0;font-size:15px;line-height:1.4;color:#31515a}
+    #planning .quadrant li{position:relative;padding-left:20px}
+    #planning .quadrant li:before{content:"";position:absolute;left:0;top:.55em;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+    #planning .quadrant li+li{margin-top:12px}
+    #planning .kpi-kor-2027{margin-top:34px;padding:clamp(22px,3vw,38px);background:#082f40;border:0;border-radius:20px;box-shadow:0 22px 45px rgba(4,39,53,.18)}
+    #planning .kpi-header{align-items:start;margin-bottom:24px}
+    #planning .kpi-header .card-kicker{color:#83d8cf;font-size:12px}
+    #planning .kpi-header h3{color:#fff;font-size:clamp(25px,2.7vw,35px);line-height:1.13;letter-spacing:-.03em;max-width:650px}
+    #planning .kpi-header p{color:#c7dce0;font-size:14px;line-height:1.55}
+    #planning .metric-columns{gap:12px}
+    #planning .metric-column{border:1px solid rgba(255,255,255,.2);border-radius:13px;background:#fff}
+    #planning .metric-title{padding:18px 21px;background:#e8f6f3}
+    #planning .kor-column .metric-title{background:#dcebf3}
+    #planning .metric-title span,#planning .kor-column .metric-title span{color:#087f78;font-size:12px}
+    #planning .metric-title b,#planning .kor-column .metric-title b{color:#173c49;font-size:17px}
+    #planning .metric-row{padding:13px 21px}
+    #planning .metric-row strong{font-size:15px}
+    #planning .metric-row small{font-size:13px;color:#546f76}
+    #planning .metric-footer{margin-top:22px;padding:0;background:transparent;color:#d9e8e9;font-size:14px}
+    @media(max-width:780px){#planning .priority-matrix{grid-template-columns:1fr}#planning .quadrant{min-height:0;padding:22px}#planning .kpi-header{display:block}#planning .kpi-header p{margin-top:14px}}
+  `;
+  document.head.appendChild(premium);
 })();
