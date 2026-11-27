@@ -11,15 +11,15 @@
   if (home) {
     const heroTitle = document.querySelector('.hero h1');
     const heroIntro = document.querySelector('.hero p');
-    if (heroTitle) heroTitle.textContent = 'Doze entrevistas que precisam orientar o plano de 2027.';
-    if (heroIntro) heroIntro.textContent = 'Leitura individual de cinco áreas, uma diretoria, cinco consultores de campo e uma cliente-clínica, conectada ao overview por marca.';
+    if (heroTitle) heroTitle.textContent = 'Treze entrevistas que precisam orientar o plano de 2027.';
+    if (heroIntro) heroIntro.textContent = 'Leitura individual de cinco áreas, uma diretoria, cinco consultores de campo e duas lideranças cliente-clínica, conectada ao overview por marca.';
     const navigationPanel = home.querySelector('.panel');
     const navigationHeading = navigationPanel?.querySelector('h2');
     const navigationIntro = navigationPanel?.querySelector('.intro');
     const navigationStats = navigationPanel?.querySelector('.grid.g4');
-    if (navigationHeading) navigationHeading.textContent = 'Quatro origens de entrevista, quatro lentes para decidir melhor.';
-    if (navigationIntro) navigationIntro.innerHTML = 'As <b>cinco áreas</b> trazem a visão funcional da Organon; a <b>Diretoria de Fertilidade</b> define a lente de negócio, prioridade e governança; os <b>cinco consultores de campo</b> mostram a realidade do território; e a <b>cliente-clínica</b> revela como a decisão de prescrever, comprar e utilizar as soluções acontece na prática. O objetivo é deixar claro <b>quem trouxe cada leitura</b>, onde há convergência e o que precisa ser decidido.';
-    if (navigationStats) navigationStats.innerHTML = '<div class="stat"><b>05</b><span>áreas entrevistadas</span></div><div class="stat"><b>01</b><span>diretoria de Fertilidade</span></div><div class="stat"><b>05</b><span>consultores de campo</span></div><div class="stat"><b>01</b><span>cliente-clínica</span></div>';
+    if (navigationHeading) navigationHeading.textContent = 'Quatro origens de entrevista, cinco lentes para decidir melhor.';
+    if (navigationIntro) navigationIntro.innerHTML = 'As <b>cinco áreas</b> trazem a visão funcional da Organon; a <b>Diretoria de Fertilidade</b> define a lente de negócio; os <b>cinco consultores de campo</b> mostram a realidade do território; e as <b>duas lideranças cliente-clínica</b> revelam tanto a decisão assistencial quanto a lógica de negócio, operação e mercado das clínicas.';
+    if (navigationStats) navigationStats.innerHTML = '<div class="stat"><b>05</b><span>áreas entrevistadas</span></div><div class="stat"><b>01</b><span>diretoria de Fertilidade</span></div><div class="stat"><b>05</b><span>consultores de campo</span></div><div class="stat"><b>02</b><span>cliente-clínica</span></div>';
   }
 
   areasButton.textContent = "Entrevistas";
@@ -39,7 +39,7 @@
   clientView.style.display = "none";
   const interviewTabs = document.createElement("div");
   interviewTabs.className = "interview-tabs";
-  interviewTabs.innerHTML = '<button class="active" data-view="areas">Visões das áreas <small>05</small></button><button data-view="director">Visão da diretoria <small>01</small></button><button data-view="field">Visões do campo <small>05</small></button><button data-view="client">Visão cliente-clínica <small>01</small></button>';
+  interviewTabs.innerHTML = '<button class="active" data-view="areas">Visões das áreas <small>05</small></button><button data-view="director">Visão da diretoria <small>01</small></button><button data-view="field">Visões do campo <small>05</small></button><button data-view="client">Visão cliente-clínica <small>02</small></button>';
   areasPanel.append(interviewTabs, areaView, directorView, fieldPanel, clientView);
   fieldPage.remove();
   fieldPanel.style.display = "none";
