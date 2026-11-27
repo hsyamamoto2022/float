@@ -16,7 +16,7 @@
   if (!areas.querySelector('.area-interviewees')) {
     const roster = document.createElement('div');
     roster.className = 'area-interviewees';
-    roster.innerHTML = `<div class="eyebrow">12 entrevistas no total</div><h3>5 áreas entrevistadas · 1 diretoria · 5 consultores de campo · 1 cliente-clínica</h3><div class="interview-scope"><span><b>05</b> áreas</span><span><b>01</b> diretoria</span><span><b>05</b> campo</span><span><b>01</b> cliente-clínica</span></div><div class="eyebrow roster-kicker">Visões das áreas entrevistadas</div><div class="area-roster">${people.map(([area,name,role]) => `<div><span>${area}</span><b>${name}</b><small>${role}</small></div>`).join('')}</div>`;
+    roster.innerHTML = `<div class="eyebrow">13 entrevistas no total</div><h3>5 áreas entrevistadas · 1 diretoria · 5 consultores de campo · 2 cliente-clínica</h3><div class="interview-scope"><span><b>05</b> áreas</span><span><b>01</b> diretoria</span><span><b>05</b> campo</span><span><b>02</b> cliente-clínica</span></div><div class="eyebrow roster-kicker">Visões das áreas entrevistadas</div><div class="area-roster">${people.map(([area,name,role]) => `<div><span>${area}</span><b>${name}</b><small>${role}</small></div>`).join('')}</div>`;
     chips.insertAdjacentElement('beforebegin', roster);
   }
   const style = document.createElement('style');
